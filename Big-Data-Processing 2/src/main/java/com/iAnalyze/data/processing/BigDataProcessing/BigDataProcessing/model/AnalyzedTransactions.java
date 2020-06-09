@@ -11,6 +11,10 @@ public class AnalyzedTransactions {
     private int totalFraudlentPerStep;
     private double avgFraudPerStep;
 
+    public AnalyzedTransactions() {
+
+    }
+
     public AnalyzedTransactions(int step, int totalFraudlentPerStep, double avgFraudPerStep) {
         this.step = step;
         this.totalFraudlentPerStep = totalFraudlentPerStep;
