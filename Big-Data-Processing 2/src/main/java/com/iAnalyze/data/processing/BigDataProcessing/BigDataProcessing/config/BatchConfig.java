@@ -42,7 +42,8 @@ public class BatchConfig {
 
     @Bean
     public Step step1() {
-        return stepBuilderFactory.get("step1").<Transaction, Transaction>chunk(200000)
+        int CHUNK_SIZE = 200000;
+        return stepBuilderFactory.get("step1").<Transaction, Transaction>chunk(CHUNK_SIZE)
                 .reader(Reader.reader("transactions.csv"))
                 .processor(new Processor())
                 .writer(new Writer(transactionsDao))
