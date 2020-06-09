@@ -1,5 +1,6 @@
 package com.iAnalyze.data.processing.BigDataProcessing.BigDataProcessing.dao;
 
+import com.iAnalyze.data.processing.BigDataProcessing.BigDataProcessing.model.AnalyzedTransactions;
 import com.iAnalyze.data.processing.BigDataProcessing.BigDataProcessing.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -53,6 +54,14 @@ public class TransactionsImpl  extends JdbcDaoSupport implements TransactionsDao
               return TransactionRecords.size();
             }
         });
+    }
+
+    @Override
+    public void analyzeInsert(List<? extends AnalyzedTransactions> analyzedTransactions) {
+        String sqlCommand = String.format("INSERT INTO analyzedTransactions (step, ");
+
+        assert getJdbcTemplate() != null;
+
     }
 
     @Override
