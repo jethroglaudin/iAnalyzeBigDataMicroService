@@ -21,6 +21,12 @@ public class BatchController {
     @Autowired
     Job job;
 
+    @RequestMapping("/test")
+    public String testBatch(){
+        return "This is a test";
+    }
+
+
     @RequestMapping("/run")
     public ResponseEntity<?> handle() throws Exception {
         Logger logger = LoggerFactory.getLogger(this.getClass());
