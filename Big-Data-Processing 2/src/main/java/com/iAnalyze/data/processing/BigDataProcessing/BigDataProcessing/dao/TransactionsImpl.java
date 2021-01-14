@@ -1,6 +1,5 @@
 package com.iAnalyze.data.processing.BigDataProcessing.BigDataProcessing.dao;
 
-import com.iAnalyze.data.processing.BigDataProcessing.BigDataProcessing.model.AnalyzedTransactions;
 import com.iAnalyze.data.processing.BigDataProcessing.BigDataProcessing.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -56,13 +55,13 @@ public class TransactionsImpl  extends JdbcDaoSupport implements TransactionsDao
         });
     }
 
-    @Override
-    public void analyzeInsert(List<? extends AnalyzedTransactions> analyzedTransactions) {
-        String sqlCommand = String.format("INSERT INTO analyzedTransactions (step, ");
-
-        assert getJdbcTemplate() != null;
-
-    }
+//    @Override
+//    public void analyzeInsert(List<? extends AnalyzedTransactions> analyzedTransactions) {
+//        String sqlCommand = String.format("INSERT INTO analyzedTransactions (step, ");
+//
+//        assert getJdbcTemplate() != null;
+//
+//    }
 
     @Override
     public List<Transaction> loadAllTransactions() {
@@ -71,19 +70,19 @@ public class TransactionsImpl  extends JdbcDaoSupport implements TransactionsDao
 
         List<Transaction> result = new ArrayList<Transaction>();
         for(Map<String, Object> row : rows) {
-            Transaction transaction = new Transaction();
-            transaction.setStep((int) row.get("step"));
-            transaction.setType((String) row.get("type"));
-            transaction.setAmount((Float) row.get("amount"));
-            transaction.setNameOrig((String) row.get("name_orig"));
-            transaction.setOldBalanceOrig((Float) row.get("old_balance_orig"));
-            transaction.setNewBalanceOrig((Float) row.get("new_balance_orig"));
-            transaction.setNameDest((String) row.get("name_dest"));
-            transaction.setOldBalanceDest((Float) row.get("old_balance_dest"));
-            transaction.setNewBalanceDest((Float) row.get("new_balance_dest"));
-            transaction.setIsFraud((Integer) row.get("is_fraud"));
-            transaction.setIsFlaggedFraud((Integer) row.get("is_flagged_fraud"));
-            result.add(transaction);
+            Transaction transactionRecord = new Transaction();
+            transactionRecord.setStep((Integer) row.get("step"));
+            transactionRecord.setType((String) row.get("type"));
+            transactionRecord.setAmount((Float) row.get("amount"));
+            transactionRecord.setNameOrig((String) row.get("name_orig"));
+            transactionRecord.setOldBalanceOrig((Float) row.get("old_balance_orig"));
+            transactionRecord.setNewBalanceOrig((Float) row.get("new_balance_orig"));
+            transactionRecord.setNameDest((String) row.get("name_dest"));
+            transactionRecord.setOldBalanceDest((Float) row.get("old_balance_dest"));
+            transactionRecord.setNewBalanceDest((Float) row.get("new_balance_dest"));
+            transactionRecord.setIsFraud((Integer) row.get("is_fraud"));
+            transactionRecord.setIsFlaggedFraud((Integer) row.get("is_flagged_fraud"));
+            result.add(transactionRecord);
         }
         return result;
     }

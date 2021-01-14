@@ -6,13 +6,13 @@ import lombok.Data;
 public class Transaction {
     private int step;
     private String type;
-    private float amount;
+    private Float amount;
     private String nameOrig;
-    private float oldBalanceOrig;
-    private float newBalanceOrig;
+    private Float oldBalanceOrig;
+    private Float newBalanceOrig;
     private String nameDest;
-    private float oldBalanceDest;
-    private float newBalanceDest;
+    private Float oldBalanceDest;
+    private Float newBalanceDest;
     private int isFraud;
     private int isFlaggedFraud;
 

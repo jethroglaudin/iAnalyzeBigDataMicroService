@@ -48,7 +48,7 @@ public class BatchConfig {
                 .processor(new Processor())
                 .writer(new Writer(transactionsDao))
                 .taskExecutor(taskExecutor())
-                .throttleLimit(20)
+//                .throttleLimit(20)
                 .build();
     }
 
